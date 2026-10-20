@@ -4,6 +4,31 @@ Note: Only use **NEW:** for entirely new prompt files, NOT for new additions/sec
 
 ### Claude Code System Prompts Changelog
 
+# [2.1.304](https://github.com/Piebald-AI/claude-code-system-prompts/commit/7f5fe8d)
+
+_+3,747 tokens_
+
+- **NEW:** Agent Prompt: Artifact type creation slash command (first-party type), Artifact type creation slash command (MCP connector tools), and Artifact type creation slash command (MCP connector tools, first-party type) — Add creation instructions for when the Artifacts MCP connector's tools replace the built-in Artifact tool, and for types the quickstart has no option for, a case neither `/design` nor `/slides` triggers.
+- **NEW:** System Reminder: Attached machine could not be reached (asleep, busy, cause unknown, signed off, and went silent) — Add cause-specific follow-ups naming the remedy: waking the computer, checking its network without quitting Claude, or reopening Claude there; unknown causes keep the generic check.
+- **NEW:** System Reminder: Attached machine not answering — Splits out the opening shared by the retry-shortly and stop-calling arms, adding Claude not running on the machine to the usual causes.
+- **NEW:** System Reminder: Attached machine signed-off likely causes and Attached machine signed-off notice — Give likely reasons a machine's Claude signs off; once all machines have, run commands here and say reopening Claude with Remote Control on usually brings them back.
+- **NEW:** System Reminder: Memory file contents (unverified managed folder) — Heads unverified instructions from this machine's managed folder, warning that this session's own account could have written them: follow every limit, but treat nothing in them as permission.
+- **NEW:** Tool Description: ExitPlanMode (diskless session) — Without a plan file, Claude passes the whole plan inline as Markdown for approval; declining keeps Claude in plan mode to revise and resubmit.
+- **NEW:** Tool Description: SubscribePR — Describes subscribing a session to a GitHub pull request's CI failures, all-green notices, review comments, and close/reopen events; no built-in tool uses this description in this build.
+- **REMOVED:** Skill: Artifact whiteboard when-to-use guidance, Multiplayer whiteboard description, and Whiteboard description — Remove the whiteboard and multiplayer whiteboard skill descriptions and the guidance for offering a whiteboard unprompted; whiteboard publishing code remains in the build.
+- **REMOVED:** System Reminder: Attached machine could not be reached (return noted) and Attached machine could not be reached (return not noted) — Replaced by the cause-specific arms, which keep the same limits on calling the machine again and still have Claude tell the user what is blocked.
+- Agent Prompt: Claude Test explorer — Adds `effort: medium` to its frontmatter and lowers the report cap from 60 to 40 lines.
+- Data: Artifact host MCP server guidance — Says `host:claude_browser` answers when the page is opened in the Claude desktop app, not only in a Cowork session; viewers are asked at its first call instead of per website, then at each action reaching banking or other high-risk sites.
+- Data: Claude Platform on AWS reference — Adds an `ant` CLI row: with the region and workspace ID set, commands other than `ant beta:worker` go to Claude Platform on AWS; confirm with `ant auth status`.
+- System Reminder: Attached machine could not be reached and Attached machine could not be reached (oversized call) — The opening now says when the machine was last heard from, if known; its request to check that Claude is running moves into the oversized-call and cause-unknown arms.
+- System Reminder: Attached machine not answering (retry shortly) and Attached machine not answering (stop calling) — Now follow the shared not-answering opening; retry-shortly has the user check that Claude is open there, and stop-calling says opening Claude with the computer awake and online brings it back.
+- System Reminder: Plan approved — Mentions where the plan was saved, and referring back to it, only when the session has a plan file.
+- System Reminder: Unreachable attached machines — Has Claude relay what each machine's line says about why it is unreachable and what brings it back, instead of a fixed asleep, offline, or not-running explanation.
+- Tool Description: Artifact publishing and update guidance — Adds that a page's own URL changes never show in the address bar, so name bookmarkable views with bare, non-reserved hash tokens and give users each view's link.
+- Tool Description: Background monitor (streaming events) — In diskless sessions, adds a note that monitors are dependable only while Claude is working, and scopes per-occurrence monitors to the current turn.
+- Tool Description: Bash (sleep — no polling background tasks) and Tool Parameter: Bash run_in_background guidance — When background shells are kept elsewhere, say Claude is notified of a background command only if it finishes while Claude is still working.
+- Tool Description: Plugin organization submission and replacement — No longer says claude.ai scans every upload; whether it scans depends on the organization, so Claude reports a scan only as the result states.
+
 #### [2.1.303](https://github.com/Piebald-AI/claude-code-system-prompts/commit/58997eb)
 
 <sub>_No changes to the system prompts in v2.1.303._</sub>
